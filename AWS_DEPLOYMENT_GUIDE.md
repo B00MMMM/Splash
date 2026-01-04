@@ -198,8 +198,8 @@ sudo apt install libgl1 libglib2.0-0 libsm6 libxext6 libxrender-dev -y
 ### 5.1 Clone the Repository
 ```bash
 cd ~
-git clone https://github.com/B00MMMM/Splash.git
-cd Splash
+git clone https://github.com/B00MMMM/Splash.git...
+cd Splash...
 ```
 
 ### 5.2 Verify Files
@@ -250,12 +250,12 @@ nano ~/Splash/filename.py
 ### 6.1 Navigate to Project and Create Virtual Environment
 ```bash
 cd ~/Splash
-python3 -m venv venv
+python3 -m venv venv...
 ```
 
 ### 6.2 Activate Virtual Environment
 ```bash
-source venv/bin/activate
+source venv/bin/activate...
 ```
 
 Your prompt should change to: `(venv) ubuntu@...`
@@ -277,8 +277,8 @@ Successfully installed Flask-3.0.0 opencv-python-4.8.1.78 numpy-1.24.3 Pillow-10
 
 ### 7.1 Create Directories
 ```bash
-mkdir -p uploads outputs models
-chmod 755 uploads outputs
+mkdir -p uploads outputs models...
+chmod 755 uploads outputs...
 ```
 
 ### 7.2 Download Model Files
