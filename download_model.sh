@@ -10,7 +10,7 @@ cd models
 
 # Download prototxt (model architecture)
 echo "1/3 Downloading model architecture (prototxt)..."
-wget -q --show-progress https://raw.githubusercontent.com/richzhang/colorization/master/colorization/models/colorization_deploy_v2.prototxt
+wget -q --show-progress https://raw.githubusercontent.com/richzhang/colorization/caffe/models/colorization_deploy_v2.prototxt
 
 # Download caffemodel (trained weights)
 echo "2/3 Downloading model weights (caffemodel) - ~130MB..."
@@ -18,7 +18,7 @@ wget -q --show-progress https://www.dropbox.com/s/dx0qvhhp5hbcx7z/colorization_r
 
 # Download cluster centers
 echo "3/3 Downloading cluster centers (numpy file)..."
-wget -q --show-progress https://raw.githubusercontent.com/richzhang/colorization/master/colorization/resources/pts_in_hull.npy
+wget -q --show-progress https://raw.githubusercontent.com/richzhang/colorization/caffe/resources/pts_in_hull.npy
 
 cd ..
 
