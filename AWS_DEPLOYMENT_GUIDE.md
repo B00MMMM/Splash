@@ -157,80 +157,86 @@ Copy and paste these commands one by one into MobaXterm:
 
 ### 4.1 Update System
 ```bash
-sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y...
 ```
 (Takes 2-5 minutes)
 
 ### 4.2 Install Python
 ```bash
-sudo apt install python3 python3-pip python3-venv -y
+sudo apt install python3 python3-pip python3-venv -y...
 ```
 
 Verify:
 ```bash
-python3 --version
+python3 --version...
 ```
 (Should show: Python 3.10.x or higher)
 
 ### 4.3 Install PHP
 ```bash
-sudo apt install php -y
+sudo apt install php -y...
 ```
 
 Verify:
 ```bash
-php --version
+php --version...
 ```
 (Should show: PHP 8.1.x or higher)
 
 ### 4.4 Install Additional Tools
 ```bash
-sudo apt install wget curl git -y
-sudo apt install libgl1-mesa-glx libglib2.0-0 -y
+sudo apt install wget curl git -y...
+sudo apt install libgl1 libglib2.0-0 libsm6 libxext6 libxrender-dev -y
 ```
+
+**Note:** Updated for Ubuntu 22.04+ (libgl1 replaces libgl1-mesa-glx)
 
 ---
 
-## PART 5: UPLOAD PROJECT FILES
+## PART 5: CLONE PROJECT FROM GITHUB
 
-### Method A: Using MobaXterm (Recommended)
+### 5.1 Clone the Repository
+```bash
+cd ~
+git clone https://github.com/B00MMMM/Splash.git
+cd Splash
+```
+
+### 5.2 Verify Files
+```bash
+ls -la
+```
+
+You should see:
+- app.py
+- colorizer.py
+- config.py
+- requirements.txt
+- download_model.sh, start.sh, stop.sh
+- frontend/ folder
+- database/ folder
+- models/ folder (empty - will download later)
+
+---
+
+## ALTERNATIVE: Upload Files Manually
+
+### Method A: Using MobaXterm
 
 1. In MobaXterm, look at the left panel
 2. You'll see a file browser showing `/home/ubuntu/`
 3. Create project directory:
    ```bash
-   mkdir ~/colorization-app
+   mkdir ~/Splash
    ```
-4. In left panel, navigate to `/home/ubuntu/colorization-app/`
-5. From your Windows computer, drag and drop these files:
-   - app.py
-   - colorizer.py
-   - config.py
-   - requirements.txt
-   - download_model.sh
-   - setup.sh
-   - start.sh
-   - stop.sh
-6. Create frontend folder:
-   ```bash
-   mkdir ~/colorization-app/frontend
-   ```
-7. Drag and drop into `frontend/`:
-   - index.php
-   - script.js
-   - style.css
+4. In left panel, navigate to `/home/ubuntu/Splash/`
+5. Drag and drop all project files from your computer
 
-### Method B: Using Git (if you have GitHub repo)
-```bash
-cd ~
-git clone your-github-repo-url
-cd your-repo-name
-```
+### Method B: Manual Copy-Paste (for small files)
 
-### Method C: Manual Copy-Paste (for small files)
 For each file:
 ```bash
-nano ~/colorization-app/filename.py
+nano ~/Splash/filename.py
 # Paste content
 # Press Ctrl+O to save
 # Press Enter to confirm
@@ -241,9 +247,9 @@ nano ~/colorization-app/filename.py
 
 ## PART 6: SETUP PYTHON ENVIRONMENT
 
-### 6.1 Create Virtual Environment
+### 6.1 Navigate to Project and Create Virtual Environment
 ```bash
-cd ~/colorization-app
+cd ~/Splash
 python3 -m venv venv
 ```
 
@@ -315,6 +321,7 @@ total 126M
 Edit the JavaScript file to use your EC2 IP:
 
 ```bash
+cd ~/Splash
 nano frontend/script.js
 ```
 
@@ -341,7 +348,7 @@ Save and exit:
 
 Make sure you're in the project directory with venv activated:
 ```bash
-cd ~/colorization-app
+cd ~/Splash
 source venv/bin/activate
 python3 app.py
 ```
@@ -381,7 +388,7 @@ screen -S flask
 
 In the new terminal:
 ```bash
-cd ~/colorization-app/frontend
+cd ~/Splash/frontend
 php -S 0.0.0.0:8000
 ```
 
@@ -443,7 +450,7 @@ Press `Ctrl+C` in both terminals
 **Start Flask in screen:**
 ```bash
 screen -S flask
-cd ~/colorization-app
+cd ~/Splash
 source venv/bin/activate
 python3 app.py
 # Press Ctrl+A then D to detach
@@ -452,7 +459,7 @@ python3 app.py
 **Start PHP in screen:**
 ```bash
 screen -S php
-cd ~/colorization-app/frontend
+cd ~/Splash/frontend
 php -S 0.0.0.0:8000
 # Press Ctrl+A then D to detach
 ```
